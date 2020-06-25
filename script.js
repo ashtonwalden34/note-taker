@@ -19,7 +19,11 @@ $("#note-search-btn").on("click", function(event) {
     $.get("/api/notes/" + noteSearch, function(data) {
         console.log(data);
 
-
-    })
-
+        if (data) {
+            $("#titleDisplay").text(data.title);
+            $("#noteBodyDisplay").text(data.noteBody);
+        } else {
+            $("#titleDisplay").text("No note matching ("  + noteSearch + ") could be found.")
+        }
+    });
 });
