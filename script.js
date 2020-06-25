@@ -11,3 +11,7 @@ $("#add-note-btn").on("click", function(event) {
             alert("adding note " + newNote.title);
         });
 });
+
+$("#note-search-btn").on("click", function(event) {
+
+});
