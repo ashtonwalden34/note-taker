@@ -1,6 +1,6 @@
 var path = require("path");
 
-mocdule.exports = function(app) {
+module.exports = function(app) {
     // route to html page displaying notes
     app.get("/", function(req, res) {
         res.sendFile(path.join(__dirname, "index.html"));
