@@ -3,7 +3,8 @@ var path = require("path");
 mocdule.exports = function(app) {
     // route to html page displaying notes
     app.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname, "notes.html"));
+        res.sendFile(path.join(__dirname, "index.html"));
+        console.log(__dirname);
     });
 
     // route to html page to add note

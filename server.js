@@ -1,13 +1,15 @@
 var express = require("express");
+var apiRoutes = require("./routes/apiRoutes");
+var htmlRoutes = require("./routes/htmlRoutes");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-require("./routes/apiRoutes")(app);
-require("./routes/apiRoutes")(app);
+app.use("/api", apiRoutes);
+app.use("/", htmlRoutes);
 
 // Starts the server
 // ---------------------------------------------------------
