@@ -11,6 +11,10 @@ app.use(express.json());
 app.use("/api", apiRoutes);
 app.use("/", htmlRoutes);
 
+
+require("./routes/apiRoutes")(app);
+require("./routes/apiRoutes")(app);
+
 // Starts the server
 // ---------------------------------------------------------
 app.listen(PORT, function() {
