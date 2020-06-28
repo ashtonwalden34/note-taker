@@ -20,9 +20,7 @@ module.exports = function(app) {
         res.json(newNote);
     });
 
-
-    /*
-    // Displays a single note
+    // Displays one note at a time
     app.get("/api/notes/:note", function(req, res) {
         var chosen = req.params.note;
 
@@ -35,5 +33,4 @@ module.exports = function(app) {
         }
         return res.json(false);
     });
-    */
 };

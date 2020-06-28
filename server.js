@@ -6,8 +6,8 @@ var htmlRoutes = require("./routes/htmlRoutes");
 
 // variable to hold express
 var app = express();
-// looks for open port or uses 8080 as default
-var PORT = process.env.PORT || 8080;
+// looks for open port or uses 8000 as default
+var PORT = process.env.PORT || 8000;
 
 
 app.use(express.static("public"));
