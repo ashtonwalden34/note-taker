@@ -9,12 +9,20 @@ var app = express();
 // looks for open port or uses 8000 as default
 var PORT = process.env.PORT || 8000;
 
+app.disable('etag');
 
-app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use("/api", apiRoutes);
-app.use("/", htmlRoutes);
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
+
+//app.use(express.static("public"));
+
+//app.use("/api", apiRoutes);
+//app.use(htmlRoutes);
+require('./routes/htmlRoutes')(app)
+require('./routes/apiRoutes')(app)
 
 // Starts the server
 // ---------------------------------------------------------
