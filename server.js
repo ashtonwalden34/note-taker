@@ -1,31 +1,24 @@
-// variables that requires express
+// creates variable to require and store express
 var express = require("express");
-// variables to hold route files
-var apiRoutes = require("./routes/apiRoutes");
-var htmlRoutes = require("./routes/htmlRoutes");
-
-// variable to hold express
 var app = express();
-// looks for open port or uses 8000 as default
+
+// Looks for an open port or defaults to 8000
 var PORT = process.env.PORT || 8000;
 
-app.disable('etag');
+// Sets express up to parse
+app.use(express.urlencoded({ extended: true }));
+// express recognizes objects as JSON
+app.use(express.json());
 
-var bodyParser = require('body-parser')
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
-}));
+// serves up static pages to keep the displays the same
+app.use(express.static('public'));
 
-//app.use(express.static("public"));
-
-//app.use("/api", apiRoutes);
-//app.use(htmlRoutes);
-require('./routes/htmlRoutes')(app)
-require('./routes/apiRoutes')(app)
+// Links to apiRoutes
+app.use(require("./apiRoutes"));
+// Links to htmlRoutes
+app.use(require("./htmlRoutes"));
 
 // Starts the server
-// ---------------------------------------------------------
 app.listen(PORT, function() {
-    console.log("listening on port" + PORT)
+    console.log("Listening on PORT: " + PORT);
 });
