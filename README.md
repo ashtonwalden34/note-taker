@@ -1,9 +1,11 @@
 # Note Taker App
 
+![Image of note taker user interface](./public/assets/noteTaker.png)
+
+
 # Description
 This app provides the user with the ability to write, store, and delete notes easily through simple text input
 
-![Image of note taker user interface](./public/assets/noteTaker.png)
 
 # Technologies Used
 - HTML
